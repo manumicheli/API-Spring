@@ -3,10 +3,8 @@ package br.com.neurotech.api.Service;
 import br.com.neurotech.api.model.Usuario;
 import br.com.neurotech.api.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -16,51 +14,24 @@ public class UserService {
     private UserRepository userRepository;
 
     @Autowired
-    private PasswordEncoder passwordEncoder;
+    private BCryptPasswordEncoder passwordEncoder;
 
-    public Usuario registerUser(String name, String email, String password, String genero,
-            String empresa, String datanascimento) {
-        if (userRepository.findByEmail(email).isPresent()) {
-            throw new RuntimeException("Email já registrado.");
+    public String registerUser(Usuario usuario) {
+        Optional<Usuario> existingUser = userRepository.findByEmail(usuario.getEmail());
+        if (existingUser.isPresent()) {
+            return "Erro: Email já registrado.";
         }
 
-        Usuario user = new Usuario();
-        user.setName(name);
-        user.setEmail(email);
-        user.setPassword(passwordEncoder.encode(password));
-        user.setGenero(genero);
-        user.setEmpresa(empresa);
-        user.setDatanascimento(datanascimento);
-
-        return userRepository.save(user);
+        usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
+        userRepository.save(usuario);
+        return "Usuário registrado com sucesso.";
     }
 
-    public Optional<Usuario> findByEmail(String email) {
-        return userRepository.findByEmail(email);
-    }
-
-    public Optional<Usuario> findById(Long id) {
-        return userRepository.findById(id);
-    }
-
-    public List<Usuario> findAll() {
-        return userRepository.findAll();
-    }
-
-    public void deleteUser(Long id) {
-        userRepository.deleteById(id);
-    }
-
-    public Usuario authenticateUser(String email, String password) {
+    public String loginUser(String email, String senha) {
         Optional<Usuario> user = userRepository.findByEmail(email);
-        if (user.isPresent() && passwordEncoder.matches(password, user.get().getPassword())) {
-            return user.get(); 
-        } else {
-            throw new RuntimeException("Email ou senha inválidos.");
+        if (user.isPresent() && passwordEncoder.matches(senha, user.get().getSenha())) {
+            return "Login bem-sucedido.";
         }
-    }
-
-    public Usuario registerUser(Usuario user) {
-        throw new UnsupportedOperationException("Unimplemented method 'registerUser'");
+        return "Erro: Email ou senha inválidos.";
     }
 }

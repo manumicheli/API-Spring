@@ -1,17 +1,8 @@
-package br.com.neurotech.api.model;
+package br.com.neurotech.DTO;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import br.com.neurotech.api.model.Usuario;
 
-@Entity
-public class Usuario {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    private Long id;
+public class RegistroDto {
     private String nomecompleto;
     private String email;
     private String senha;
@@ -20,15 +11,6 @@ public class Usuario {
     private String datanascimento;
 
     // Getters e Setters
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getNomecompleto() {
         return nomecompleto;
     }
@@ -75,5 +57,17 @@ public class Usuario {
 
     public void setDatanascimento(String datanascimento) {
         this.datanascimento = datanascimento;
+    }
+
+      // conversão para a entidade Usuario
+    public Usuario toUsuario() {
+        Usuario usuario = new Usuario();
+        usuario.setNomecompleto(this.nomecompleto);
+        usuario.setEmail(this.email);
+        usuario.setSenha(this.senha);
+        usuario.setGenero(this.genero);
+        usuario.setEmpresa(this.empresa);
+        usuario.setDatanascimento(this.datanascimento);
+        return usuario;
     }
 }
