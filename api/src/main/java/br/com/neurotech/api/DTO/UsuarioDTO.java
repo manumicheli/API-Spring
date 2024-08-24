@@ -1,8 +1,8 @@
-package br.com.neurotech.DTO;
+package br.com.neurotech.api.DTO;
 
 import br.com.neurotech.api.model.Usuario;
 
-public class RegistroDto {
+public class UsuarioDTO {
     private String nomecompleto;
     private String email;
     private String senha;
@@ -59,7 +59,7 @@ public class RegistroDto {
         this.datanascimento = datanascimento;
     }
 
-      // conversão para a entidade Usuario
+    // Método para converter DTO para a entidade Usuario
     public Usuario toUsuario() {
         Usuario usuario = new Usuario();
         usuario.setNomecompleto(this.nomecompleto);
@@ -69,5 +69,14 @@ public class RegistroDto {
         usuario.setEmpresa(this.empresa);
         usuario.setDatanascimento(this.datanascimento);
         return usuario;
+    }
+
+    // Construtor que aceita a entidade Usuario para conversão para DTO
+    public UsuarioDTO(Usuario usuario) {
+        this.nomecompleto = usuario.getNomecompleto();
+        this.email = usuario.getEmail();
+        this.genero = usuario.getGenero();
+        this.empresa = usuario.getEmpresa();
+        this.datanascimento = usuario.getDatanascimento();
     }
 }

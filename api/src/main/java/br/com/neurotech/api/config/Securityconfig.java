@@ -17,16 +17,12 @@ public class Securityconfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable())  // Desabilita CSRF 
+            .csrf(csrf -> csrf.disable())  // Desabilita CSRF
             .authorizeHttpRequests(authorize -> authorize
                 .requestMatchers("/api/users/register", "/api/users/login").permitAll()  // Permite acesso sem autenticação
-                .anyRequest().authenticated()  // Exige autenticação para outras requisições
-            )
-            .formLogin(formLogin -> formLogin
-                .loginPage("/login")  // Página de login customizada
-                .permitAll()
-            )
-            .logout(logout -> logout.permitAll());  //  logout
+                .anyRequest().authenticated());  // Exige autenticação para outras requisições
+            
+            
 
         return http.build();
     }

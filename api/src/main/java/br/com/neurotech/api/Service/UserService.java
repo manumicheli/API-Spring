@@ -5,7 +5,9 @@ import br.com.neurotech.api.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import java.util.List;
 import java.util.Optional;
+
 
 @Service
 public class UserService {
@@ -33,5 +35,41 @@ public class UserService {
             return "Login bem-sucedido.";
         }
         return "Erro: Email ou senha inválidos.";
+    }
+
+    public List<Usuario> getAllUsuarios() {
+        return userRepository.findAll();
+    }
+
+    public Optional<Usuario> getUsuarioById(Long id) {
+        return userRepository.findById(id);
+    }
+
+    public String updateUsuario(Long id, Usuario usuarioAtualizado) {
+        Optional<Usuario> usuarioOptional = userRepository.findById(id);
+        if (usuarioOptional.isPresent()) {
+            Usuario usuarioExistente = usuarioOptional.get();
+            usuarioExistente.setNomecompleto(usuarioAtualizado.getNomecompleto());
+            usuarioExistente.setEmail(usuarioAtualizado.getEmail());
+            usuarioExistente.setSenha(passwordEncoder.encode(usuarioAtualizado.getSenha()));
+            usuarioExistente.setGenero(usuarioAtualizado.getGenero());
+            usuarioExistente.setEmpresa(usuarioAtualizado.getEmpresa());
+            usuarioExistente.setDatanascimento(usuarioAtualizado.getDatanascimento());
+
+            userRepository.save(usuarioExistente);
+            return "Usuário atualizado com sucesso.";
+        } else {
+            return "Erro: Usuário não encontrado.";
+        }
+    }
+
+    public String deleteUsuario(Long id) {
+        Optional<Usuario> usuarioOptional = userRepository.findById(id);
+        if (usuarioOptional.isPresent()) {
+            userRepository.deleteById(id);
+            return "Usuário deletado com sucesso.";
+        } else {
+            return "Erro: Usuário não encontrado.";
+        }
     }
 }
