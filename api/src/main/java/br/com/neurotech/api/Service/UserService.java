@@ -45,16 +45,35 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-    public String updateUsuario(Long id, Usuario usuarioAtualizado) {
+    public String atualizarUsuario(Long id, Usuario usuarioAtualizado) {
         Optional<Usuario> usuarioOptional = userRepository.findById(id);
         if (usuarioOptional.isPresent()) {
             Usuario usuarioExistente = usuarioOptional.get();
-            usuarioExistente.setNomecompleto(usuarioAtualizado.getNomecompleto());
-            usuarioExistente.setEmail(usuarioAtualizado.getEmail());
-            usuarioExistente.setSenha(passwordEncoder.encode(usuarioAtualizado.getSenha()));
-            usuarioExistente.setGenero(usuarioAtualizado.getGenero());
-            usuarioExistente.setEmpresa(usuarioAtualizado.getEmpresa());
-            usuarioExistente.setDatanascimento(usuarioAtualizado.getDatanascimento());
+
+            
+            if (usuarioAtualizado.getNomecompleto() != null && !usuarioAtualizado.getNomecompleto().isEmpty()) {
+                usuarioExistente.setNomecompleto(usuarioAtualizado.getNomecompleto());
+            }
+
+            if (usuarioAtualizado.getEmail() != null && !usuarioAtualizado.getEmail().isEmpty()) {
+                usuarioExistente.setEmail(usuarioAtualizado.getEmail());
+            }
+
+            if (usuarioAtualizado.getSenha() != null && !usuarioAtualizado.getSenha().isEmpty()) {
+                usuarioExistente.setSenha(passwordEncoder.encode(usuarioAtualizado.getSenha()));
+            }
+
+            if (usuarioAtualizado.getGenero() != null && !usuarioAtualizado.getGenero().isEmpty()) {
+                usuarioExistente.setGenero(usuarioAtualizado.getGenero());
+            }
+
+            if (usuarioAtualizado.getEmpresa() != null && !usuarioAtualizado.getEmpresa().isEmpty()) {
+                usuarioExistente.setEmpresa(usuarioAtualizado.getEmpresa());
+            }
+
+            if (usuarioAtualizado.getDatanascimento() != null && !usuarioAtualizado.getDatanascimento().isEmpty()) {
+                usuarioExistente.setDatanascimento(usuarioAtualizado.getDatanascimento());
+            }
 
             userRepository.save(usuarioExistente);
             return "Usuário atualizado com sucesso.";

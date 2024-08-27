@@ -17,10 +17,10 @@ public class Securityconfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable())  // Desabilita CSRF
+            .csrf(csrf -> csrf.disable())  
             .authorizeHttpRequests(authorize -> authorize
-                .requestMatchers("/api/users/register", "/api/users/login").permitAll()  // Permite acesso sem autenticação
-                .anyRequest().authenticated());  // Exige autenticação para outras requisições
+                .requestMatchers("/api/users/register", "/api/users/login").permitAll() 
+                .anyRequest().authenticated());  
             
             
 

@@ -10,7 +10,7 @@ public class UsuarioDTO {
     private String empresa;
     private String datanascimento;
 
-    // Getters e Setters
+    
     public String getNomecompleto() {
         return nomecompleto;
     }
@@ -59,7 +59,7 @@ public class UsuarioDTO {
         this.datanascimento = datanascimento;
     }
 
-    // Método para converter DTO para a entidade Usuario
+    
     public Usuario toUsuario() {
         Usuario usuario = new Usuario();
         usuario.setNomecompleto(this.nomecompleto);
@@ -71,7 +71,7 @@ public class UsuarioDTO {
         return usuario;
     }
 
-    // Construtor que aceita a entidade Usuario para conversão para DTO
+    
     public UsuarioDTO(Usuario usuario) {
         this.nomecompleto = usuario.getNomecompleto();
         this.email = usuario.getEmail();

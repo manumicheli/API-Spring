@@ -59,7 +59,7 @@ public class UserController {
     @PutMapping("/{id}")
     public ResponseEntity<String> updateUsuario(@PathVariable Long id, @RequestBody UsuarioDTO usuarioDTO) {
         Usuario usuario = usuarioDTO.toUsuario();
-        String response = userService.updateUsuario(id, usuario);
+        String response = userService.atualizarUsuario(id, usuario);
 
         if (response.startsWith("Erro")) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);

@@ -11,7 +11,7 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
+
     private Long id;
 
     @Column(nullable = false)
@@ -32,7 +32,7 @@ public class Usuario {
     @Column(nullable = false)
     private String datanascimento;
 
-    // Getters e Setters
+   
 
     public Long getId() {
         return id;
