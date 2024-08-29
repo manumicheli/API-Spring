@@ -1,10 +1,16 @@
 package br.com.neurotech.api.controller;
 
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import br.com.neurotech.api.DTO.UsuarioDTO;
+
+
 
 @Controller
-public class PageController {
+public class PageController { 
+    
 
     
     @GetMapping("/")
@@ -14,7 +20,8 @@ public class PageController {
 
     
     @GetMapping("/register")
-    public String register() {
+    public String register(Model model,UsuarioDTO usuarioDTO ) {
+        model.addAttribute("usuarioDTO", new UsuarioDTO("","","","","","") );
         return "cadastro"; 
     }
 

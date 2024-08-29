@@ -1,7 +1,8 @@
 package br.com.neurotech.api.DTO;
 
 import br.com.neurotech.api.model.Usuario;
-
+import lombok.AllArgsConstructor;
+@AllArgsConstructor
 public class UsuarioDTO {
     private String nomecompleto;
     private String email;
