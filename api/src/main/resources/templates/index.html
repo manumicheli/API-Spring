@@ -1,32 +1,30 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
 </head>
 <body>
-        <nav>
-            <div class="logo">
-                <img src="./imagens/Group 28.png" alt="Neuro Place" height="100"> 
+    <nav>
+        <div class="logo">
+            <img th:src="@{/imagens/Group28.png}" alt="Neuro Place" height="100">
+        </div>
+        <div>
+            <div class="categorias-dropdown">
+                <span>Categorias</span>
             </div>
-            <div>
-                <div class="categorias-dropdown">
-                   <span>Categorias</span>
-                </div>
-                <div class="pesquisar-bar">
-                    <input type="text" placeholder="Escolha sua área de interesse">
-                    <button>🔍</button>
-                </div>
+            <div class="pesquisar-bar">
+                <input type="text" placeholder="Escolha sua área de interesse">
+                <button>🔍</button>
             </div>
-            <div>
-                <button class="login">Login</button>
-                <button class="cadastro">Cadastro</button>
-            </div>
-            
-        </nav>
-    </header>
+        </div>
+        <div>
+            <button class="login" th:onclick="|window.location.href='@{/login}'|">Login</button>
+            <button class="cadastro" th:onclick="|window.location.href='@{/register}'|">Cadastro</button>
+        </div>
+    </nav>
 
     <main>
         <section class="content">
@@ -37,7 +35,7 @@
                 <p>A causa do TEA é desconhecida, envolvendo fatores genéticos e ambientais. Fatores como exposição a agentes químicos, deficiência de vitamina D e ácido fólico, substâncias na gestação, prematuridade, baixo peso ao nascer, gestações múltiplas, infecção materna e idade parental avançada podem contribuir para o TEA.</p>
             </div>
             <div class="imagem">
-                <img src="./imagens/Design sem nome (1) 1.png" alt="./imagens2pag" class="img-right"> 
+                <img th:src="@{/imagens/Design-sem-nome-1.png}" alt="Imagem TEA" class="img-right">
             </div>
         </section>
     </main>
