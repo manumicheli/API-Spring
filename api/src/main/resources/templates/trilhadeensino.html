@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroPlace</title>
+    <link rel="stylesheet" th:href="@{/trilha.css}"/>
+    <link rel="stylesheet" th:href="@{/progressbar.css}"/>
+</head>
+<body>
+    <div class="search-box"> <!--trilha.css até L76-->
+        <form method="GET">
+            <input class="search-box-input" type="text" placeholder="Escolha sua área de interesse" name="procurar">
+            <button class="btn-search" type="submit">Buscar</button> 
+        </form>
+    
+        <form method="GET">
+            <button class="btn-personalizar" type="submit">Personalizar</button> 
+        </form>
+    </div>
+    
+    <div class="perfil">
+        <h2 class="name">Nome Sobrenome</h2>
+    </div>
+
+    <nav class="menu-lateral">
+        <div class="btn-expandir">
+            <i class="bi bi-list"></i>
+        </div>
+
+        <div class="logo-neuro">
+            <img th:src="@{/imagens/neuro.png}" alt="Logo"/>
+        </div>
+        
+        <ul>
+            <li class="itens-menu">
+                <a th:href="@{/}">
+                    <span class="item-icone"><i class="bi bi-house-door"></i></span>
+                    <span class="txt-link">Home</span>
+                </a>
+            </li>
+
+            <li class="itens-menu">
+                <a th:href="@{/cursos}">
+                    <span class="item-icone"><i class="bi bi-journal"></i></span>
+                    <span class="txt-link">Cursos</span>
+                </a>
+            </li>
+
+            <li class="itens-menu">
+                <a th:href="@{/certificados}">
+                    <span class="item-icone"><i class="bi bi-clipboard-check"></i></span>
+                    <span class="txt-link">Certificados</span>
+                </a>
+            </li>
+            
+            <li class="itens-menu">
+                <a th:href="@{/trilha-de-ensino}">
+                    <span class="item-icone"><i class="bi bi-bar-chart-line"></i></span>
+                    <span class="txt-link">Trilha de ensino</span>
+                </a>
+            </li>
+            
+            <li class="itens-menu parceria">
+                <a th:href="@{/parceria}">
+                    <span class="txt-link">Parcerias</span>
+                </a>
+            </li>
+            
+            <li class="itens-menu contato">
+                <a th:href="@{/contato}">
+                    <span class="txt-link">Contatos</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="tittles">        <!--text.css-->                        
+        <h1 class="titulo-principal">Desenvolvimento de softskills</h1> 
+        <h2 class="subtitulo">Comunicação não violenta</h2>   
+
+        <div class="loader">      <!-- progressbar.css-->
+            <loader id="progressBar" value="50" max="100"></loader>
+            <button onclick="incrementProgress()">Progresso</button>
+            <p class="progressTrack">Acompanhe seu progresso</p>
+        </div>
+    </div>
+
+    <div class="data">
+        <h2 class="data-base">Dados gerais do curso</h2>      <!--text.css-->
+
+        <span class="icone-adicional"><i class="bi bi-alarm"></i></span>
+        <p class="workload"><strong>Carga horária:</strong> 20 horas</p>
+              
+        <span class="icon-adicional"><i class="bi bi-journal-text"></i></span>
+        <p class="content"><strong>Conteúdo:</strong> Escuta Ativa, Responsabilidade Pessoal e 
+        Aplicação no Ambiente de Trabalho</p>
+    </div>
+</body>
+</html>
