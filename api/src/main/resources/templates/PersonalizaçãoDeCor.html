@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personalização paleta de cores</title>
-    <link rel="stylesheet" href="PersonalizaçãoDeCor.css">
+    <link th:href="@{../static/css/PersonalizaçãoDeCor.css}" href="../static/css/PersonalizaçãoDeCor.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="./imagens/Group28.png" alt="Neuro Place" height="100">
+            <img src="../static/imagens/Group28.png" alt="Neuro Place" height="100">
         </div>
         <nav>
             <div class="categorias-dropdown">
@@ -59,7 +59,7 @@
             </div>
         </div>
         <div>
-            <button class="ProximoBotao">Próximo</button>
+            <button class="ProximoBotao" href="PersonalizaçãoFonte.html" >Próximo</button>
             </div>
     </main>
 </body>
