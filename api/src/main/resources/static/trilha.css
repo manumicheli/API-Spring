@@ -1,0 +1,160 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ffffff;
+    font-size: 16px;
+    font-weight: normal;
+    margin-left: 200px;
+    padding: 170px;
+}   
+
+.search-box {
+    margin-top: -150px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    border: none;
+    border-radius: 20px;
+}    
+
+form {
+    display: flex;
+    align-items: center; 
+    gap: 10px; 
+}
+
+.btn-search{
+    background-color: #D9D9D9;
+    border: none;                        
+    border-radius: 20px;
+    margin-bottom: 10px;
+    width: 80px; 
+    padding: 8px 10px;
+    margin-left: 12px;
+    margin-top: 10px;
+    cursor: pointer;  
+}
+.search-box-input{
+    width: 695px;
+    height: 30px;
+    border: none;
+    border-radius: 20px;
+    background-color: #D9D9D9;
+    text-align: center;
+}     
+
+.btn-personalizar{
+    background-color: #fcbc80;
+    border: none;                       
+    border-radius: 20px;
+    margin-bottom: 10px;
+    width: 100px;
+    padding: 8px 10px;
+    margin-left: 58px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+nav.menu-lateral{     
+    width: 80px;
+    height: 100%;
+    background-color: #9AAFB6;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 340px;
+    overflow: hidden;
+    transition: .2s;
+}
+
+.logo-neuro img{        
+    width: 200px;
+    height: 100px;
+    margin-left: 50px;
+}
+
+.btn-expandir{
+    width: 100%;
+    padding-left: 10px;
+}
+
+.btn-expandir > i{             /*estiliza o hamburguinho*/
+    color: #ffffff;
+    font-size: 28px;
+    cursor: pointer;
+    padding-top: 120px;
+    display: inline;
+}
+
+ul{
+    height: 100%;
+    list-style-type: none;
+}
+
+ul li.itens-menu .item-icone{
+    color: #ffffff;
+    padding-right: 10%;
+}
+
+ul li.itens-menu a{             /*estiliza o texto ao lado dos icons*/
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 20px 13%;
+    display: flex;
+    padding-top: 15px;
+    padding-bottom: 10%;
+    margin-left: 25px; 
+}
+
+ul li.itens-menu :hover{
+    background-color: #2B5D8B; 
+    opacity: 0.7;
+    height: 2vh;
+    margin: 0 auto;
+    transition: .2s;
+}
+
+.container-not-stilus{
+    cursor: pointer;
+    margin-top: 10px;
+    list-style-type: none; /* Remove os marcadores da lista */
+    transition: 0.3s ease;
+}
+
+.itens-menu.parceria {
+    padding: 15px 13%; 
+    margin: 0 auto;
+    margin-left: 45px;
+    color: #ffffff;
+    cursor: pointer;      /*ver se isso torna de fato um botão ou só me iludiu*/
+}    
+
+.itens-menu.contato {
+    padding: 15px 13%;
+    margin-left: 45px;
+    color: #ffffff;
+    cursor: pointer;      /*ver se isso torna de fato um botão ou só me iludiu*/
+}  
+
+.perfil{
+    display: flex;
+    width: 958px;
+    height: 180px;
+    background-color: #2B5D8B; 
+    border-radius: 20px 20px 0 0;
+
+    & .name{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        align-items: flex-end;
+        margin-left: 15px;
+        margin-bottom: 5px;
+        color: #ffffff;
+    }
+
+.icone-adicional{
+        color: chartreuse;
+    }    
+}

@@ -1,0 +1,139 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+header {
+    background-color: #2B5D8B;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.categorias-dropdown button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.pesquisar-bar {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.pesquisar-bar input {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.pesquisar-bar button {
+    background-color: #2B5D8B;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.login, .cadastro {
+    background-color: #2B5D8B;
+    color: white;
+    border: 1px solid #FCA311;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.login:hover, .cadastro:hover {
+    background-color: #FCA311;
+    color: #2B5D8B;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #F77F00;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #2B5D8B;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.paleta-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.paleta {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    width: 200px;
+    background-color: #F4F4F4;
+    text-align: center;
+}
+
+.paleta h3 {
+    color: #2B5D8B;
+    margin-bottom: 15px;
+}
+
+.cores {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.cor {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.paleta button {
+    background-color: #2B5D8B;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.paleta button:hover {
+    background-color: #FCA311;
+    color: #2B5D8B;
+}
+.ProximoBotao{
+    background-color: #2B5D8B;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.ProximoBotao :hover{
+    background-color: #FCA311;
+    color: #2B5D8B;
+}

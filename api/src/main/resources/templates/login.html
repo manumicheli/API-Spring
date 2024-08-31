@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuro Place Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+    <script src="login.js"></script>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="./imagens/Group 28.png" alt="Neuro Place" height="100">
+            </div>
+            <div class="navigation">
+                <input type="text" placeholder="Escolha sua área de interesse">
+                <button>Login</button>
+                <button>Cadastro</button>
+            </div>
+        </div>
+
+        <div class="login-area">
+            <div class="imagem">
+                <img src="./imagens/pexels-polina-kovaleva-8709543.jpg" alt="./imagem2pag" height="280">
+            </div>
+            <div class="login-form">
+                <h2>Faça login na sua conta da Neuro Place</h2>
+                <input type="email" placeholder="E-mail">
+                <input type="password" placeholder="Senha">
+                <button>Fazer login</button>
+                <a href="#">Esqueci a senha</a>
+                <p>Não tem uma conta? <a href="#">Clique e cadastre-se</a></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const loginButton = document.querySelector(".login-form button");
+            
+            loginButton.addEventListener("click", function() {
+                const email = document.querySelector(".login-form input[type='email']").value;
+                const password = document.querySelector(".login-form input[type='password']").value;
+
+                if (!email || !password) {
+                    alerta("Por favor, preencha todos os campos.");
+                } else {
+                    alerta("Login efetuado com sucesso!");
+                }
+            });
+        });
+    </script>
+</body>
+<footer></footer>
+</html>
