@@ -24,13 +24,17 @@ public class Securityconfig {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(authorize -> authorize
-                .requestMatchers("/", "/register", "/login", "/personalizacao-de-cor", "/personalizacao-de-fonte", "/css/**", "/imagens/**").permitAll()
+                .requestMatchers("/",
+                "/login",
+                "/register", 
+                "/css/**", 
+                "/imagens/**").permitAll()
                 .anyRequest().authenticated()
             )
-            .formLogin(form -> form
-                .loginPage("/login")
-                .permitAll()
-            )
+            // .formLogin(form -> form
+            //     .loginPage("/login")
+            //     .permitAll()
+            // )
             .logout(logout -> logout.permitAll());
 
         return http.build();

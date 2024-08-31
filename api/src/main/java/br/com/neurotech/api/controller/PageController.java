@@ -20,7 +20,7 @@ public class PageController {
 
     
     @GetMapping("/register")
-    public String register(Model model,UsuarioDTO usuarioDTO ) {
+    public String register(Model model) {
         model.addAttribute("usuarioDTO", new UsuarioDTO("","","","","","") );
         return "cadastro"; 
     }
