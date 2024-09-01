@@ -43,5 +43,17 @@ public class PageController {
         return "personalizaçaodefonte"; 
     }
 
-    
+    @GetMappin("/"trilhadeensino)
+    public ModelAndViewodel trilhadeensino(){
+        ModelAndView mav = new ModelAndView ("trilhadeensino");
+        mav.addObjeto ("mensagem", "trilha de ensino");
+        return mav;
+    }
+
+    @GetMapping("/cursos")
+    public ModelAndView cursos() {
+    ModelAndView mav = new ModelAndView("cursos"); 
+    mav.addObject("mensagem", "Bem-vindo ao curso de Neurotech!"); 
+    return mav;
+    }
 }
