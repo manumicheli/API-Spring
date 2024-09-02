@@ -43,13 +43,15 @@ public class UserController {
         }
     }
 
-    @GetMapping("/todos")
+    @GetMapping ("/todos")
     public ResponseEntity<List<UsuarioDTO>> getAllUsuarios() {
         List<UsuarioDTO> usuarios = userService.getAllUsuarios().stream()
                 .map(UsuarioDTO::new)
                 .collect(Collectors.toList());
         return ResponseEntity.ok(usuarios);
     }
+
+   
 
     @GetMapping("/{id}")
     public ResponseEntity<UsuarioDTO> getUsuarioById(@PathVariable Long id) {
@@ -78,5 +80,5 @@ public class UserController {
         } else {
             return ResponseEntity.ok(response);
         }
-    }
+}
 }
