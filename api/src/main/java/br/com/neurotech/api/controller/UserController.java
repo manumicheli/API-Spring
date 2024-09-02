@@ -54,14 +54,14 @@ public class UserController {
    
 
     @GetMapping("/{id}")
-    public ResponseEntity<UsuarioDTO> getUsuarioById(@PathVariable Long id) {
+    public ResponseEntity<UsuarioDTO> getUsuarioById(@PathVariable("id") Long id) {
         Optional<Usuario> usuarioOptional = userService.getUsuarioById(id);
         return usuarioOptional.map(usuario -> ResponseEntity.ok(new UsuarioDTO(usuario)))
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateUsuario(@PathVariable Long id, @RequestBody UsuarioDTO usuarioDTO) {
+    public ResponseEntity<String> updateUsuario(@PathVariable("id") Long id, @RequestBody UsuarioDTO usuarioDTO) {
         Usuario usuario = usuarioDTO.toUsuario();
         String response = userService.atualizarUsuario(id, usuario);
 
@@ -73,7 +73,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteUsuario(@PathVariable Long id) {
+    public ResponseEntity<String> deleteUsuario(@PathVariable("id") Long id) {
         String response = userService.deleteUsuario(id);
         if (response.startsWith("Erro")) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);

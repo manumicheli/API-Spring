@@ -15,7 +15,7 @@ public class PageController {
 
     @GetMapping("/register")
     public String register(Model model) {
-        model.addAttribute("usuarioDTO", new UsuarioDTO("","","","","","") );
+        model.addAttribute("usuarioDTO", new UsuarioDTO(null,"","","","","",""));
         return "cadastro"; 
     }
 
