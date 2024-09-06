@@ -16,7 +16,8 @@
             <div class="navigation">
                 <input type="text" placeholder="Escolha sua área de interesse">
                 <button th:onclick="|window.location.href='@{/login}'|">Login</button>
-                <button class="cadastro" onclick="window.location.href='cadastro.html'">Cadastro</button>
+                <a th:href="@{/cadastro}" class="login-cadastro"> 
+                    <button class="cadastro">Cadastro</button> </a>
             </div>
         </div>
 

@@ -21,7 +21,7 @@ public class UserController {
 
     
 
-    @PostMapping("/register")
+    @PostMapping(value="/register", consumes = "application/json", produces = "application/json")
     public ResponseEntity<String> registerUser(@RequestBody UsuarioDTO usuarioDTO) {
         Usuario usuario = usuarioDTO.toUsuario();
         String response = userService.registerUser(usuario);

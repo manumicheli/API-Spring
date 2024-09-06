@@ -21,8 +21,10 @@
             </div>
         </div>
         <div>
-            <button class= "login" onclick="window.location.href='login.html'">Login</button>
-            <button class="cadastro" onclick="window.location.href='cadastro.html'">Cadastro</button>
+        <a th:href="@{/login}" class="login-cadastro">
+            <button class= "login">Login</button> </a>
+        <a th:href="@{/cadastro}" class="login-cadastro"> 
+            <button class="cadastro">Cadastro</button> </a>
         </div>
     </nav>
 

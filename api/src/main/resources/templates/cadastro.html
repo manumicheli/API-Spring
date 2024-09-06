@@ -27,17 +27,17 @@
             </div>
             <div class="right-section">
                 <h2>Cadastre-se aqui</h2>
-                <form th:action="@{/register}" method="post" id="registerForm">
-                    <input type="text" id="nomecompleto" placeholder="Nome completo" required>
-                    <input type="email" id="email" placeholder="E-mail" required>
-                    <input type="password" id="senha" placeholder="Senha" required>
-                    <input type="text" id="empresa" placeholder="Empresa" required>
-                    <input type="date" id="datanascimento" placeholder="Data de Nascimento" required>
-                    <div class="genero">
-                        <label><input type="radio" name="genero" value="Masculino" required> M</label>
-                        <label><input type="radio" name="genero" value="Feminino"> F</label>
-                        <label><input type="radio" name="genero" value="Outro"> Outro</label>
-                    </div>
+                <form th:action="@{/api/users/register}" th:object="${usuarioDTO}" method="post" id="registerForm">
+                    <input type="text" id="nomecompleto" th:field="*{nomecompleto}" placeholder="Nome completo" required>
+                    <input type="email" id="email" th:field="*{email}" placeholder="E-mail" required>
+                    <input type="password" id="senha" th:field="*{senha}" placeholder="Senha" required>
+                    <input type="text" id="empresa" th:field="*{empresa}" placeholder="Empresa" required>
+                    <input type="date" id="datanascimento" th:field="*{datanascimento}" placeholder="Data de Nascimento" required>
+                  <!--  <div class="genero"> 
+                        <label><input th:if="${genero == 'M'}" required> M</label>
+                        <label><input th:if="${genero == 'F'}" value="Feminino"> F</label>
+                        <label><input th:unless="${genero == 'Outro'}" name="genero" value="Outro"> Outro</label>
+                    </div> -->
                     <button type="submit">Cadastrar</button>
                 </form>
             </div>

@@ -40,4 +40,13 @@ public class UsuarioDTO {
         usuario.setDatanascimento(this.datanascimento);
         return usuario;
     }
+    public UsuarioDTO(String nomecompleto, String email, String senha, String genero, String empresa, String datanascimento) {
+       
+        this.nomecompleto = nomecompleto;
+        this.email = email;
+        this.senha = senha;
+        this.genero = genero;
+        this.empresa = empresa;
+        this.datanascimento = datanascimento;
+    }
 }

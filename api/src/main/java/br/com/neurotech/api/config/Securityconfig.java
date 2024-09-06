@@ -25,6 +25,8 @@ public class Securityconfig {
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(authorize -> authorize
                 .requestMatchers("/",
+                "/login",
+                "/cadastro",
                 "/api/users/login",
                 "/api/users/register",
                 "/api/users/todos",

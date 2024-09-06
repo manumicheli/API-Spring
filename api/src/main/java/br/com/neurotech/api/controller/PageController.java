@@ -3,6 +3,8 @@ package br.com.neurotech.api.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import br.com.neurotech.api.DTO.UsuarioDTO;
 
@@ -47,4 +49,11 @@ public class PageController {
         mav.addObject("mensagem", "Bem-vindo ao curso de Neurotech!"); 
         return mav;
     }
+     @GetMapping("/cadastro")
+    public String showCadastroPage(Model model) {
+        // You can add any necessary model attributes here
+        model.addAttribute("usuarioDTO", new UsuarioDTO("","","","","",""));
+        return "cadastro";
+    }
+
 }
